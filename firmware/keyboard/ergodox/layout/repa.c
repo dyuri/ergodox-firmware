@@ -63,6 +63,9 @@ KEYS__LAYER__NUM_POP(10);
 
 #include "./common/matrix.h"
 
+// TODO
+// - tnkro
+// - mouse layer
 
 static _layout_t _layout = {
 
@@ -72,21 +75,21 @@ static _layout_t _layout = {
 // macro, unused,
        K,    nop,
 // left hand ...... ......... ......... ......... ......... ......... .........
-   equal,        1,        2,        3,        4,        5,      esc,
-     tab,    quote,    comma,   period,        p,        y,   lpu1l1,
- bkslash,        a,        o,        e,        u,        i,
+     esc,        1,        2,        3,        4,        5,   lpu2l2,
+     tab,    quote,    comma,   period,        p,        y, lpupo2l2,
+    altR,        a,        o,        e,        u,        i,
 shL2kcap,  semicol,        q,        j,        k,        x, lpupo1l1,
-    guiL,    grave,  bkslash,   arrowL,   arrowR,
-                                                               ctrlL,     altL,
+   ctrlL,    grave,  bkslash,    brktL,    brktR,
+                                                                guiL,     altL,
                                                        nop,      nop,     home,
-                                                        bs,      del,      end,
+                                                     space,       bs,      end,
 // right hand ..... ......... ......... ......... ......... ......... .........
-             btldr,        6,        7,        8,        9,        0,     dash,
-             MclkL,        f,        g,        c,        r,        l,    brktR,
-                           d,        h,        t,        n,        s,    slash,
-             tnkro,        b,        m,        w,        v,        z, shR2kcap,
-                                arrowL,   arrowD,   arrowU,   arrowR,     guiR,
-    altR,    ctrlR,
+            lpu1l1,        6,        7,        8,        9,        0,     equal,
+          lpupo2l2,        f,        g,        c,        r,        l,    slash,
+                           d,        h,        t,        n,        s,     dash,
+          lpupo1l1,        b,        m,        w,        v,        z, shR2kcap,
+                                arrowL,   arrowD,   arrowU,   arrowR,    ctrlR,
+    altR,     guiR,
    pageU,      nop,      nop,
    pageD,    enter,    space  ),
 
