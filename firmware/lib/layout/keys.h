@@ -218,6 +218,7 @@ KEYS__DEFAULT(    num,            KEYPAD__NumLock_Clear                );
 KEYS__DEFAULT(    app,            KEYBOARD__Application                );
 KEYS__DEFAULT(    pause,          KEYBOARD__Pause                      );
 KEYS__DEFAULT(    prScr,          KEYBOARD__PrintScreen                );
+KEYS__DEFAULT(    menu,           KEYBOARD__Menu                       );
 
 // international and language
 KEYS__DEFAULT(    nonUSBkslash,   KEYBOARD__NonUS_Backslash_Pipe       );
