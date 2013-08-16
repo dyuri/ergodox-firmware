@@ -125,6 +125,13 @@ static uint8_t resize_stack(void) {
 
 // ----------------------------------------------------------------------------
 
+uint8_t layer_stack__reset() {
+  stack.filled = 0;
+  return resize_stack();
+}
+
+// ----------------------------------------------------------------------------
+
 uint8_t layer_stack__peek(uint8_t offset) {
     if (offset > stack.filled-1)
         return 0;  // default

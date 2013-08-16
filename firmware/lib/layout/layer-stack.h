@@ -31,6 +31,7 @@ uint8_t layer_stack__push    ( uint8_t offset,
 uint8_t layer_stack__pop_id  (uint8_t layer_id);
 uint8_t layer_stack__find_id (uint8_t layer_id);
 uint8_t layer_stack__size    (void);
+uint8_t layer_stack__reset   (void);
 
 
 // ----------------------------------------------------------------------------

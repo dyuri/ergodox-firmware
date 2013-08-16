@@ -229,6 +229,9 @@ void R(tnkro) (void) {}
 // note: these are just some default layer key definitions; no need to stick to
 // them if they're inconvenient
 
+void P(lreset) (void) { layer_stack__reset(); }
+void R(lreset) (void) {}
+
 KEYS__LAYER__PUSH_POP(0, 0);
 #define  keys__press__lpu0l0    P(lpupo0l0)
 #define  keys__release__lpu0l0  KF(nop)
