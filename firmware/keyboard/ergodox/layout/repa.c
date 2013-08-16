@@ -119,7 +119,31 @@ shL2kcap,  semicol,        q,        j,        k,        x, lpupo1l1,
 
 // ............................................................................
 
-    MATRIX_LAYER(  // layer 2 : keyboard functions
+    MATRIX_LAYER(  // layer 2 : qwerty
+// macro, unused,
+       K,    nop,
+// left hand ...... ......... ......... ......... ......... ......... .........
+   grave,        1,        2,        3,        4,        5,      esc,
+     tab,        q,        w,        e,        r,        t,   lreset,
+    altR,        a,        s,        d,        f,        g,
+  shiftL,        z,        x,        c,        v,        b, lpupo3l3,
+   ctrlL,      del,      ins,     home,      end,
+                                                                guiL,     altL,
+                                                       nop,      nop,     home,
+                                                     space,       bs,      end,
+// right hand ..... ......... ......... ......... ......... ......... .........
+            lpo2l2,        6,        7,        8,        9,        0,     dash,
+            lreset,        y,        u,        i,        o,        p,    equal,
+                           h,        j,        k,        l,  semicol,    slash,
+           bkslash,        n,        m,    comma,   period,   arrowU,   shiftR,
+                                 brktL,    brktL,   arrowL,   arrowD,   arrowR,
+    altR,     guiR,
+   pageU,      nop,      nop,
+   pageD,    enter,    space  ),
+
+// ............................................................................
+
+    MATRIX_LAYER(  // layer 3 : keyboard functions
 // macro, unused,
        K,    nop,
 // left hand ...... ......... ......... ......... ......... ......... .........
@@ -143,7 +167,7 @@ shL2kcap,  semicol,        q,        j,        k,        x, lpupo1l1,
 
 // ............................................................................
 
-    MATRIX_LAYER(  // layer 3 : numpad
+    MATRIX_LAYER(  // layer 4 : left mirrored + extras TODO
 // macro, unused,
        K,    nop,
 // left hand ...... ......... ......... ......... ......... ......... .........
