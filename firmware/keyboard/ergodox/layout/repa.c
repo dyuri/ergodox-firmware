@@ -81,8 +81,8 @@ static _layout_t _layout = {
 shL2kcap,  semicol,        q,        j,        k,        x, lpupo1l1,
    ctrlL,    grave,  bkslash,    brktL,    brktR,
                                                                 guiL,     altL,
-                                                       nop,      nop,     home,
-                                                     space,       bs,      end,
+                                                       nop,      nop,   lpu4l4,
+                                                     space,       bs, lpupo4l4,
 // right hand ..... ......... ......... ......... ......... ......... .........
             lpu1l1,        6,        7,        8,        9,        0,     equal,
           lpupo2l2,        f,        g,        c,        r,        l,    slash,
@@ -95,7 +95,7 @@ shL2kcap,  semicol,        q,        j,        k,        x, lpupo1l1,
 
 // ............................................................................
 
-    MATRIX_LAYER(  // layer 1 : function and symbol keys
+    MATRIX_LAYER(  // layer 1 : function and symbol keys // TODO remove kp
 // macro, unused,
        K,    nop,
 // left hand ...... ......... ......... ......... ......... ......... .........
@@ -129,8 +129,8 @@ shL2kcap,  semicol,        q,        j,        k,        x, lpupo1l1,
   shiftL,        z,        x,        c,        v,        b, lpupo3l3,
    ctrlL,      del,      ins,     home,      end,
                                                                 guiL,     altL,
-                                                       nop,      nop,     home,
-                                                     space,       bs,      end,
+                                                       nop,      nop,   lpu4l4,
+                                                     space,       bs, lpupo4l4,
 // right hand ..... ......... ......... ......... ......... ......... .........
             lpo2l2,        6,        7,        8,        9,        0,     dash,
             lreset,        y,        u,        i,        o,        p,    equal,
@@ -171,11 +171,11 @@ shL2kcap,  semicol,        q,        j,        k,        x, lpupo1l1,
 // macro, unused,
        K,    nop,
 // left hand ...... ......... ......... ......... ......... ......... .........
-  transp,   transp,   transp,   transp,   transp,   transp,   transp,
-  transp,   transp,   transp,   transp,   transp,   transp,   transp,
-  transp,   transp,   transp,   transp,   transp,   transp,
-  transp,   transp,   transp,   transp,   transp,   transp,   transp,
-  transp,      ins,   transp,   transp,   transp,
+   equal,        0,        9,        8,        7,        6,      esc,
+   slash,        l,        r,        c,        g,        f,   lreset,
+    dash,        s,        n,        t,        h,        d,
+  shiftR,        z,        v,        w,        m,        b,  kpEnter,
+   ctrlR,   arrowL,   arrowD,   arrowU,   arrowR,
                                                               transp,   transp,
                                                     transp,   transp,   transp,
                                                     transp,   transp,   transp,
@@ -184,11 +184,15 @@ shL2kcap,  semicol,        q,        j,        k,        x, lpupo1l1,
             transp,   transp,      kp7,      kp8,      kp9,    kpSub,   transp,
                       transp,      kp4,      kp5,      kp6,    kpAdd,   transp,
             transp,   transp,      kp1,      kp2,      kp3,  kpEnter,   transp,
-                                transp,   transp,   period,  kpEnter,   transp,
+                                   kp0,      kp0,   period,  kpEnter,   transp,
   transp,   transp,
-  transp,   transp,   transp,
-  transp,   transp,      kp0  ),
+  transp,      nop,      nop,
+  transp,   transp,    space  ),
 
 // ............................................................................
 };
+
+// TODO
+//  - mirrored qwerty?
+//  - right extras
 
