@@ -81,7 +81,7 @@ static _layout_t _layout = {
 shL2kcap,  semicol,        q,        j,        k,        x, lpupo1l1,
    ctrlL,    grave,  bkslash,    brktL,    brktR,
                                                                 guiL,     altL,
-                                                       nop,      nop,   lpu4l4,
+                                                       nop,      nop, lpupo1l1,
                                                      space,       bs, lpupo4l4,
 // right hand ..... ......... ......... ......... ......... ......... .........
             lpu1l1,        6,        7,        8,        9,        0,     equal,
@@ -95,7 +95,7 @@ shL2kcap,  semicol,        q,        j,        k,        x, lpupo1l1,
 
 // ............................................................................
 
-    MATRIX_LAYER(  // layer 1 : function and symbol keys // TODO remove kp
+    MATRIX_LAYER(  // layer 1 : function and symbol keys
 // macro, unused,
        K,    nop,
 // left hand ...... ......... ......... ......... ......... ......... .........
@@ -109,13 +109,13 @@ shL2kcap,  semicol,        q,        j,        k,        x, lpupo1l1,
                                                     transp,   transp,   transp,
 // right hand ..... ......... ......... ......... ......... ......... .........
             lpo1l1,       F6,       F7,       F8,       F9,      F10,      F11,
-            lreset,      kp7,      kp8,      kp9,    kpDiv,    kpMul,      F12,
-                         kp4,      kp5,      kp6,    kpSub,    kpAdd,  kpEnter,
-          lpupo2l2,      kp1,      kp2,      kp3,    space,   arrowU,   transp,
-                                   kp0,    kpDec,   arrowL,   arrowD,   arrowR,
+            lreset,    tilde,    brktL,    brktR,    kpDiv,    kpMul,      F12,
+                     bkslash,   braceL,   braceR,    kpSub,    kpAdd,  kpEnter,
+          lpupo2l2,     pipe,   parenL,   parenR,    space,   arrowU, shR2kcap,
+                              lessThan, grtrThan,   arrowL,   arrowD,   arrowR,
   transp,   transp,
   transp,   transp,   transp,
-  transp,   transp,      kp0  ),
+  transp,   transp,   transp  ),
 
 // ............................................................................
 
@@ -129,14 +129,14 @@ shL2kcap,  semicol,        q,        j,        k,        x, lpupo1l1,
   shiftL,        z,        x,        c,        v,        b, lpupo3l3,
    ctrlL,      del,      ins,     home,      end,
                                                                 guiL,     altL,
-                                                       nop,      nop,   lpu4l4,
+                                                       nop,      nop, lpupo1l1,
                                                      space,       bs, lpupo4l4,
 // right hand ..... ......... ......... ......... ......... ......... .........
-            lpo2l2,        6,        7,        8,        9,        0,     dash,
-            lreset,        y,        u,        i,        o,        p,    equal,
-                           h,        j,        k,        l,  semicol,    slash,
+            lpo2l2,        6,        7,        8,        9,        0,    equal,
+            lreset,        y,        u,        i,        o,        p,    slash,
+                           h,        j,        k,        l,  semicol,     dash,
            bkslash,        n,        m,    comma,   period,   arrowU,   shiftR,
-                                 brktL,    brktL,   arrowL,   arrowD,   arrowR,
+                                 brktL,    brktR,   arrowL,   arrowD,   arrowR,
     altR,     guiR,
    pageU,      nop,      nop,
    pageD,    enter,    space  ),
@@ -167,7 +167,7 @@ shL2kcap,  semicol,        q,        j,        k,        x, lpupo1l1,
 
 // ............................................................................
 
-    MATRIX_LAYER(  // layer 4 : left mirrored + extras TODO
+    MATRIX_LAYER(  // layer 4 : left mirrored + numpad
 // macro, unused,
        K,    nop,
 // left hand ...... ......... ......... ......... ......... ......... .........
