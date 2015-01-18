@@ -146,6 +146,19 @@ KEYS__DEFAULT(    F10,            KEYBOARD__F10                        );
 KEYS__DEFAULT(    F11,            KEYBOARD__F11                        );
 KEYS__DEFAULT(    F12,            KEYBOARD__F12                        );
 
+KEYS__DEFAULT(    F13,            KEYBOARD__F13                        );
+KEYS__DEFAULT(    F14,            KEYBOARD__F14                        );
+KEYS__DEFAULT(    F15,            KEYBOARD__F15                        );
+KEYS__DEFAULT(    F16,            KEYBOARD__F16                        );
+KEYS__DEFAULT(    F17,            KEYBOARD__F17                        );
+KEYS__DEFAULT(    F18,            KEYBOARD__F18                        );
+KEYS__DEFAULT(    F19,            KEYBOARD__F19                        );
+KEYS__DEFAULT(    F20,            KEYBOARD__F20                        );
+KEYS__DEFAULT(    F21,            KEYBOARD__F21                        );
+KEYS__DEFAULT(    F22,            KEYBOARD__F22                        );
+KEYS__DEFAULT(    F23,            KEYBOARD__F23                        );
+KEYS__DEFAULT(    F24,            KEYBOARD__F24                        );
+
 // whitespace and symbols
 KEYS__DEFAULT(    enter,          KEYBOARD__ReturnEnter                );
 KEYS__DEFAULT(    space,          KEYBOARD__Spacebar                   );

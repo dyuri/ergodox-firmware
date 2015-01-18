@@ -46,6 +46,7 @@ void kb__led__on(uint8_t led) {
         case 3: (DDRB |=  (1<<7)); break;  // bottommost
         case 4:                    break;
         case 5:                    break;
+        case 6: (PORTD |= (1<<6)); break; // teensy
     };
 }
 
@@ -56,6 +57,7 @@ void kb__led__off(uint8_t led) {
 	    case 3: (DDRB &= ~(1<<7)); break;  // bottommost
         case 4:                    break;
         case 5:                    break;
+        case 6: (PORTD &= ~(1<<6)); break;
     };
 }
 
@@ -66,6 +68,7 @@ void kb__led__set(uint8_t led, float n) {
         case 3: (OCR1C = (uint8_t)((n) * 0xFF)); break;  // bottommost
         case 4:                                  break;
         case 5:                                  break;
+        case 6:                                  break;
     };
 }
 

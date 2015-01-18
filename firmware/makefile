@@ -112,6 +112,13 @@ SIZE    := avr-size
 
 OBJ := $(SRC:%.c=%.o)
 
+ifdef MOUSE_ENABLE
+  CFLAGS += -DMOUSE_ENABLE
+endif
+
+ifdef NKRO_ENABLE
+  CFLAGS += -DNKRO_ENABLE
+endif
 
 # -----------------------------------------------------------------------------
 # -----------------------------------------------------------------------------
