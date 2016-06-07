@@ -49,6 +49,8 @@
 // ----------------------------------------------------------------------------
 // custom
 // ----------------------------------------------------------------------------
+// Apple-specific keycode events found at
+// /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/HIToolbox.framework/Versions/A/Headers/Events.h
 
 // Send a Cut (command-X), (mac)
 void keys__press__m_cut(void) { 
@@ -72,11 +74,9 @@ void R(m_copy)(void) {}
 void keys__press__m_paste(void) { 
 usb__kb__set_key(true, KEYBOARD__LeftGUI); usb__kb__send_report();
 usb__kb__set_key(true, KEYBOARD__LeftShift); usb__kb__send_report();
-usb__kb__set_key(true, KEYBOARD__LeftAlt); usb__kb__send_report();
 usb__kb__set_key(true, KEYBOARD__v_V); usb__kb__send_report();
 
 usb__kb__set_key(false, KEYBOARD__v_V);
-usb__kb__set_key(false, KEYBOARD__LeftAlt);
 usb__kb__set_key(false, KEYBOARD__LeftShift);
 usb__kb__set_key(false, KEYBOARD__LeftGUI);
 }
@@ -95,6 +95,70 @@ usb__kb__set_key(false, KEYBOARD__LeftGUI);
 void R(m_screenCap)(void) {}
 
 
+// Browser refresh
+void P(m_BrowserRefresh)(void){
+  usb__kb__set_key(true, KEYBOARD__LeftGUI); usb__kb__send_report(); 
+  usb__kb__set_key(true, KEYBOARD__LeftShift); usb__kb__send_report(); 
+  usb__kb__set_key(true, KEYBOARD__r_R); usb__kb__send_report();
+  usb__kb__set_key(false, KEYBOARD__r_R); 
+  usb__kb__set_key(false, KEYBOARD__LeftShift);
+  usb__kb__set_key(false, KEYBOARD__LeftGUI);
+}
+void R(m_BrowserRefresh)(void){}
+
+// mac restart
+void P(mac_restart)(void){
+  usb__kb__set_key(true, KEYBOARD__LeftGUI); usb__kb__send_report(); 
+  usb__kb__set_key(true, KEYBOARD__LeftControl ); usb__kb__send_report();
+  usb__kb__set_key(true, KEYBOARD__Power ); usb__kb__send_report();
+  usb__kb__set_key(false, KEYBOARD__LeftGUI); 
+  usb__kb__set_key(false, KEYBOARD__LeftControl ); 
+  usb__kb__set_key(false, KEYBOARD__Power );
+}
+void R(mac_restart)(void){}
+
+
+// forward one word in mac terminal
+void P(fwd_terminal)(void){
+  usb__kb__set_key(true, KEYBOARD__Escape); usb__kb__send_report();
+  usb__kb__set_key(true, KEYBOARD__f_F); usb__kb__send_report();
+  usb__kb__set_key(false, KEYBOARD__f_F); 
+  usb__kb__set_key(false, KEYBOARD__Escape);
+}
+void R(fwd_terminal)(void){}
+
+//back one word in mac terminal
+void P(back_terminal)(void){
+  usb__kb__set_key(true, KEYBOARD__Escape); usb__kb__send_report();
+  usb__kb__set_key(true, KEYBOARD__b_B); usb__kb__send_report();
+  usb__kb__set_key(false, KEYBOARD__b_B); 
+  usb__kb__set_key(false, KEYBOARD__Escape);
+}
+void R(back_terminal)(void){}
+
+//forward one word ipythong
+void P(fwd_ipy)(void){
+  usb__kb__set_key(true, KEYBOARD__LeftAlt); usb__kb__send_report(); 
+  usb__kb__set_key(true, KEYBOARD__LeftShift); usb__kb__send_report();
+  usb__kb__set_key(true, KEYBOARD__f_F); usb__kb__send_report();
+  usb__kb__set_key(false, KEYBOARD__f_F); 
+  usb__kb__set_key(false, KEYBOARD__LeftShift); 
+  usb__kb__set_key(false, KEYBOARD__LeftAlt); 
+}
+void R(fwd_ipy)(void){}
+
+//back one word in ipython
+void P(back_ipy)(void){
+  usb__kb__set_key(true, KEYBOARD__RightAlt); usb__kb__send_report(); 
+  usb__kb__set_key(true, KEYBOARD__RightShift); usb__kb__send_report();
+  usb__kb__set_key(true, KEYBOARD__RightGUI); usb__kb__send_report();
+  usb__kb__set_key(true, KEYBOARD__b_B); usb__kb__send_report();
+  usb__kb__set_key(false, KEYBOARD__b_B);
+  usb__kb__set_key(false, KEYBOARD__RightGUI); 
+  usb__kb__set_key(false, KEYBOARD__RightShift); 
+  usb__kb__set_key(false, KEYBOARD__RightAlt); 
+}
+void R(back_ipy)(void){}
 
 // type a :-), to demonstrate how to do a macro
  void P(m_smiley)(void) { KF(type_string)( PSTR(":-)") ); }
@@ -118,23 +182,23 @@ static layout_t layout PROGMEM = {
 // macro, unused,
        K,    nop,
 // left hand ...... ......... ......... ......... ......... ......... .........
-    esc,       1,        2,        3,        4,        5,      brktL,
-    ins,      q,      w,      e,      r,      t,   tab,
-    del,      a,      s,      d,      f,      g,
-shL2kcap,      z,      x,      c,      v,      b, parenL,
-    lpu1l1,    grave,  ctrlL,   altL,   guiL,
-                                                               volumeU,     mute,
-                                                       nop,      nop,     tab,
-                                                      enter,      bs,      slash,
+    esc,       1,        2,        3,        4,        5,     m_screenCap,
+    pound,      q,       w,        e,        r,        t,     brktL,
+    tab,        a,       s,        d,        f,        g,
+    shL2kcap,   z,       x,        c,        v,        b,     parenL,
+    lpu2l2,    grave,  ctrlL,   altL,   guiL,
+                                                               back_terminal,     fwd_terminal,
+                                                       nop,      nop,     arrowL,
+                                                      enter,      bs,      arrowR,
 // right hand ..... ......... ......... ......... ......... ......... .........
-            brktR,        6,        7,        8,        9,        0,     pageU,
-            dash,         y,      u,      i,      o,      p,                 pageD,
-                         h,      j,      k,      l,       semicol,  home,
-          parenR,      n,      m,  comma, period,  bkslash, end,
-                                guiR,   altR,    ctrlR,    plus,     lpu2l2,
-    volumeD,    mute,
-   quote,      nop,      nop,
-   period,    shR2kcap,    space  ),
+            m_BrowserRefresh,     6,        7,        8,        9,        0,       m_paste,
+            brktR,                y,        u,        i,        o,        p,       dash,
+                                  h,        j,        k,        l,       semicol,  quote,
+            parenR,               n,        m,       comma,     period,  slash,    shR2kcap,
+                                undersc,   equal,    altR,   ctrlR,     lpu1l1,
+    mute,    bkslash,
+   arrowU,      nop,      nop,
+   arrowD,    tab,    space  ),
 
 // ............................................................................
 
@@ -142,43 +206,43 @@ shL2kcap,      z,      x,      c,      v,      b, parenL,
 // macro, unused,
        K,    nop,
 // left hand ...... ......... ......... ......... ......... ......... .........
-  lpo1l1,   F1,   F2,   F3,   F4,   F5,   MclkL,
-  transp,   F11,   F12,   F13,   F14,   F15,   transp,
-  transp,   F21,   F22,   F23,   F24,   transp,
+  lpo1l1,   F1,        F2,      F3,       F4,       F5,       transp,
+  transp,   F11,       F12,     F13,      F14,      F15,      transp,
+  transp,   transp,   transp,   transp,   transp,   transp,
   transp,   transp,   transp,   transp,   transp,   transp,   transp,
-  lpo1l1,      ins,   transp,   transp,   transp,
-                                                              transp,   transp,
-                                                    transp,   transp,   transp,
-                                                    transp,   transp,   transp,
-// right hand ..... ......... ......... ......... ......... ......... .........
-            transp,   F6,   F7,    F8,    F9, F10,   btldr,
-            transp,   F16,        F17,        F18,        F19,     F20,   power,
-                      arrowL,        arrowD,        arrowU,        arrowR,     transp,   transp,
-            transp,   transp,        transp,        transp,        transp,    transp,   transp,
-                                transp,   transp,   period,    transp,   transp,
-  transp,   transp,
-  transp,   transp,   transp,
-  transp,   transp,        0  ),
-
-// ............................................................................
-
-    MATRIX_LAYER(  // layer 2 : symbols and function keys
-// macro, unused,
-       K,    nop,
-// left hand ...... ......... ......... ......... ......... ......... .........
-  transp,       F1,       F2,       F3,       F4,       F5,      F11,
-  transp,   braceL,   braceR,    brktL,    brktR,      nop,   lpo2l2,
-  transp,  semicol,    slash,     dash,        0,    colon,
-  transp,        6,        7,        8,        9,     plus, lpupo3l3,
   transp,   transp,   transp,   transp,   transp,
                                                               transp,   transp,
                                                     transp,   transp,   transp,
+                                                    MclkL,   transp,   transp,
+// right hand ..... ......... ......... ......... ......... ......... .........
+            transp,   F6,           F7,            F8,             F9,     F10,     pageU,
+            transp,   transp,        7,              8,              9,     transp,   pageD,
+                      arrowL,       4,              5,              6,     transp,   home,
+            transp,   transp,        1,             2,              3,     transp,   end,
+                                period,   0,   transp,    transp,   lpo1l1,
+  transp,   transp,
+  transp,   transp,   transp,
+  transp,   transp,    enter  ),
+
+// ............................................................................
+
+    MATRIX_LAYER(  // layer 2 : hardware control + left hand layer
+// macro, unused,
+       K,    nop,
+// left hand ...... ......... ......... ......... ......... ......... .........
+  lpo2l2,   transp,  transp,    transp,   transp,  transp,  btldr,
+  power,   transp,   transp,    transp,    transp, transp,   transp,
+  mac_restart,  transp,    transp,     transp,   transp,  transp,
+  transp,  transp,    transp,     transp,   transp, transp, transp,
+  lpo2l2,   transp,   transp,   transp,   transp,
+                                                              back_ipy,   fwd_ipy,
+                                                    transp,   transp,   transp,
                                                     transp,   transp,   transp,
 // right hand ..... ......... ......... ......... ......... ......... .........
-               F12,       F6,       F7,       F8,       F9,      F10,    power,
-            lpo2l2,      nop,  undersc, lessThan, grtrThan,   dollar,  volumeU,
-                     bkslash,        1,   parenL,   parenR,    equal,  volumeD,
-          lpupo3l3, asterisk,        2,        3,        4,        5,     mute,
+              transp, transp,   transp,  transp,    transp,   dmp_sram,    power,
+              transp,  transp,  transp,  transp,    transp,   dmp_prog,  volumeU,
+                      transp,   transp,  transp,    transp,   dmp_eepr,  volumeD,
+              transp, transp,   transp,   transp,   transp,   transp,     mute,
                                 transp,   transp,   transp,   transp,   transp,
   transp,   transp,
   transp,   transp,   transp,
@@ -186,11 +250,11 @@ shL2kcap,      z,      x,      c,      v,      b, parenL,
 
 // ............................................................................
 
-    MATRIX_LAYER(  // layer 3 : keyboard functions
+    MATRIX_LAYER(  // layer 3 : TBD
 // macro, unused,
        K,    nop,
 // left hand ...... ......... ......... ......... ......... ......... .........
-   btldr,      nop,      nop,      nop,      nop,      nop,      nop,
+     nop,      nop,      nop,      nop,      nop,      nop,      nop,
      nop,      nop,      nop,      nop,      nop,      nop,      nop,
      nop,      nop,      nop,      nop,      nop,      nop,
      nop,      nop,      nop,      nop,      nop,      nop,      nop,
@@ -199,9 +263,9 @@ shL2kcap,      z,      x,      c,      v,      b, parenL,
                                                        nop,      nop,      nop,
                                                        nop,      nop,      nop,
 // right hand ..... ......... ......... ......... ......... ......... .........
-               nop,      nop,      nop,      nop,      nop,      nop, dmp_sram,
-               nop,      nop,      nop,      nop,      nop,      nop, dmp_prog,
-                         nop,      nop,      nop,      nop,      nop, dmp_eepr,
+               nop,      nop,      nop,      nop,      nop,      nop,      nop,
+               nop,      nop,      nop,      nop,      nop,      nop,      nop,
+                         nop,      nop,      nop,      nop,      nop,      nop,
                nop,      nop,      nop,      nop,      nop,      nop,      nop,
                                    nop,      nop,      nop,      nop,      nop,
      nop,      nop,
